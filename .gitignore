@@ -44,7 +44,6 @@ Release/
 *.svclog
 *.scc
 *.xml
-*.csproj
 
 # Visual C++ cache files
 ipch/
