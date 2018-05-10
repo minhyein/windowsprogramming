@@ -8,11 +8,11 @@
 
 # Build results
 
-[Dd]ebug/
-[Rr]elease/
-x64/
-[Bb]in/
-[Oo]bj/
+bin/
+obj/
+Debug/
+Release/
+.vs/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -43,6 +43,10 @@ x64/
 *.log
 *.svclog
 *.scc
+*.xml
+*.resx
+*.csproj
+*.config
 
 # Visual C++ cache files
 ipch/
