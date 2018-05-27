@@ -12,6 +12,7 @@ namespace SlidingPuzzle
 {
     public partial class Mode4Game : Form
     {
+        DateTime date;
         public Mode4Game()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace SlidingPuzzle
             }
             buttonArray[3, 3].Image = null;
             buttonArray[3, 3].BackColor = Color.Black;
+            date = DateTime.Now;
             
         }
         
@@ -123,15 +125,16 @@ namespace SlidingPuzzle
                 }
                 
             }
+            timer.Enabled = true;
         }
         private void clickButton(int y, int x)
         {
-            string temp;
+            int temp;
             if ((x < 3 && buttonArray[y, x + 1].Image == null))
             {
-                temp = buttonArray[y, x + 1].Text;
+                temp = Convert.ToInt32(buttonArray[y, x + 1].Text);
                 buttonArray[y, x + 1].Text = buttonArray[y, x].Text;
-                buttonArray[y, x].Text = temp;
+                buttonArray[y, x].Text = temp.ToString();
                 buttonArray[y, x + 1].Image = buttonArray[y, x].Image;
                 buttonArray[y, x + 1].BackColor = Color.Wheat;
                 buttonArray[y, x].BackColor = Color.Black;
@@ -140,9 +143,9 @@ namespace SlidingPuzzle
             }
             else if (x > 0 && (buttonArray[y, x - 1].Image == null))
             {
-                temp = buttonArray[y, x - 1].Text;
+                temp = Convert.ToInt32(buttonArray[y, x - 1].Text);
                 buttonArray[y, x - 1].Text = buttonArray[y, x].Text;
-                buttonArray[y, x].Text = temp;
+                buttonArray[y, x].Text = temp.ToString();
                 buttonArray[y, x - 1].Image = buttonArray[y, x].Image;
                 buttonArray[y, x - 1].BackColor = Color.Wheat;
                 buttonArray[y, x].BackColor = Color.Black;
@@ -151,9 +154,9 @@ namespace SlidingPuzzle
             }
             else if(y < 3 && buttonArray[y+1, x].Image == null)
             {
-                temp = buttonArray[y + 1, x].Text;
+                temp = Convert.ToInt32(buttonArray[y + 1, x].Text);
                 buttonArray[y + 1, x].Text = buttonArray[y, x].Text;
-                buttonArray[y, x].Text = temp;
+                buttonArray[y, x].Text = temp.ToString();
                 buttonArray[y + 1, x].Image = buttonArray[y, x].Image;
                 buttonArray[y + 1, x].BackColor = Color.Wheat;
                 buttonArray[y, x].BackColor = Color.Black;
@@ -162,114 +165,141 @@ namespace SlidingPuzzle
             }
             else if (y > 0 && buttonArray[y - 1, x].Image == null)
             {
-                temp = buttonArray[y - 1, x].Text;
+                temp = Convert.ToInt32(buttonArray[y - 1, x].Text);
                 buttonArray[y - 1, x].Text = buttonArray[y, x].Text;
-                buttonArray[y, x].Text = temp;
+                buttonArray[y, x].Text = temp.ToString();
                 buttonArray[y - 1, x].Image = buttonArray[y, x].Image;
                 buttonArray[y - 1, x].BackColor = Color.Wheat;
                 buttonArray[y, x].BackColor = Color.Black;
                 buttonArray[y, x].Image = null;
                 return;
             }
+            
         }
 
-        private void puzzleSuccess()
+        private void checkFinish()
         {
-            int num = 1;
+            Mode4Game mode4 = new Mode4Game();
+            int cnt = 1;
             for(int y = 0; y < 4; y++)
             {
                 for(int x = 0; x < 4; x++)
                 {
-                    if (num != Int32.Parse(buttonArray[y, x].Text))
-                        return;
-                    num++;
+                    if (Convert.ToInt32(buttonArray[y, x].Text) != cnt)
+                        break;
+                    else cnt++;
                 }
             }
-            if (num == 16)
+
+            if(cnt == 17)
             {
-                MessageBox.Show("Conglatuation!");
+                timer.Enabled = false;
+                MessageBox.Show("축하합니다!");
             }
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
            clickButton(0, 0);
+            checkFinish();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             clickButton(0, 1);
+            checkFinish();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             clickButton(0, 2);
+            checkFinish();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             clickButton(0, 3);
+            checkFinish();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             clickButton(1, 0);
+            checkFinish();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             clickButton(1, 1);
+            checkFinish();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             clickButton(1, 2);
+            checkFinish();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             clickButton(1, 3);
+            checkFinish();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             clickButton(2, 0);
+            checkFinish();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             clickButton(2, 1);
+            checkFinish();
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
             clickButton(2, 2);
+            checkFinish();
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             clickButton(2, 3);
+            checkFinish();
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
             clickButton(3, 0);
+            checkFinish();
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
             clickButton(3, 1);
+            checkFinish();
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             clickButton(3, 2);
+            checkFinish();
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
             clickButton(3, 3);
-            
+            checkFinish();
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan timeSpan = DateTime.Now - date;
+            timeScoreLabel.Text = timeSpan.ToString();
+            Invalidate();
         }
     }
 }

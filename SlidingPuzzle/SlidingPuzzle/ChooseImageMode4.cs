@@ -66,5 +66,19 @@ namespace SlidingPuzzle
             mode.Show();
         }
 
+        private void controlButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.DefaultExt = "jpg";
+            openFile.Filter = "Graphics interchange Format (*.jpg)|*.jpg|All files(*.*)|(*.*)";
+            openFile.ShowDialog();
+
+            if (openFile.FileName.Length > 0)
+            {
+                Image image = Image.FromFile(openFile.FileName);
+                Mode4Game mode = new Mode4Game(this, image);
+                mode.Show();
+            }
+        }
     }
 }

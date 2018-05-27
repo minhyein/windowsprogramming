@@ -36,6 +36,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.controlButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -135,11 +136,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // chooseImageMode4
+            // controlButton
+            // 
+            this.controlButton.Font = new System.Drawing.Font("배달의민족 주아", 12F);
+            this.controlButton.Location = new System.Drawing.Point(600, 541);
+            this.controlButton.Name = "controlButton";
+            this.controlButton.Size = new System.Drawing.Size(200, 200);
+            this.controlButton.TabIndex = 8;
+            this.controlButton.Text = "...";
+            this.controlButton.UseVisualStyleBackColor = true;
+            this.controlButton.Click += new System.EventHandler(this.controlButton_Click);
+            // 
+            // ChooseImageMode4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 753);
+            this.Controls.Add(this.controlButton);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox4);
@@ -148,7 +161,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "chooseImageMode4";
+            this.Name = "ChooseImageMode4";
             this.Text = "chooseImageMode4";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -171,5 +184,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button controlButton;
     }
 }
