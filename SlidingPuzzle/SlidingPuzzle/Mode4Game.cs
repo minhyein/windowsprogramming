@@ -21,7 +21,7 @@ namespace SlidingPuzzle
         ChooseImageMode4 mode4;
         Image image;
         Button[,] buttonArray = new Button[4,4];
-        Button[,] answerArray = new Button[4, 4];
+        bool playGame = false;
         public Mode4Game(ChooseImageMode4 form, Image picture)
         {
             InitializeComponent();
@@ -62,7 +62,7 @@ namespace SlidingPuzzle
             }
             buttonArray[3, 3].Image = null;
             buttonArray[3, 3].BackColor = Color.Black;
-            date = DateTime.Now;
+            
             
         }
         
@@ -96,6 +96,7 @@ namespace SlidingPuzzle
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            playGame = true;
             Random random = new Random();
            
             for(int i = 0; i < 16; i++)
@@ -125,10 +126,13 @@ namespace SlidingPuzzle
                 }
                 
             }
+            date = DateTime.Now;
             timer.Enabled = true;
         }
         private void clickButton(int y, int x)
         {
+            if (!playGame)
+                return;
             int temp;
             if ((x < 3 && buttonArray[y, x + 1].Image == null))
             {
@@ -179,7 +183,8 @@ namespace SlidingPuzzle
 
         private void checkFinish()
         {
-            Mode4Game mode4 = new Mode4Game();
+            if (!playGame)
+                return;
             int cnt = 1;
             for(int y = 0; y < 4; y++)
             {
@@ -195,6 +200,7 @@ namespace SlidingPuzzle
             {
                 timer.Enabled = false;
                 MessageBox.Show("축하합니다!");
+                this.Close();
             }
         }
         
