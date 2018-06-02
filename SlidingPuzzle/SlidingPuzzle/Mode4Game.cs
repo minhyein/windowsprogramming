@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SlidingPuzzle
@@ -21,6 +22,7 @@ namespace SlidingPuzzle
         ChooseImageMode4 mode4;
         Image image;
         Button[,] buttonArray = new Button[4,4];
+        
         bool playGame = false;
         public Mode4Game(ChooseImageMode4 form, Image picture)
         {
@@ -191,7 +193,7 @@ namespace SlidingPuzzle
                 for(int x = 0; x < 4; x++)
                 {
                     if (Convert.ToInt32(buttonArray[y, x].Text) != cnt)
-                        break;
+                        return;
                     else cnt++;
                 }
             }
@@ -199,6 +201,9 @@ namespace SlidingPuzzle
             if(cnt == 17)
             {
                 timer.Enabled = false;
+                StreamWriter sw = new StreamWriter(@"D:\Rank.txt", true, System.Text.Encoding.Default);
+                sw.WriteLine(timeScoreLabel.Text+"\t"+DateTime.Now.ToString("yyyy-MM-dd"));
+                sw.Close();
                 MessageBox.Show("축하합니다!");
                 this.Close();
             }
@@ -306,6 +311,19 @@ namespace SlidingPuzzle
             TimeSpan timeSpan = DateTime.Now - date;
             timeScoreLabel.Text = timeSpan.ToString();
             Invalidate();
+        }
+
+        private void rankingSort()
+        {
+            string path = @"D:\Rank.txt";
+            string[] textValue = File.ReadAllLines(path);
+            for(int i = 0; i < textValue.Length; ++i)
+            {
+                textValue[i].Replace("\t", "");
+                textValue[i].Replace("-", "");
+                textValue[i].Replace(".", "");
+
+            }
         }
     }
 }
