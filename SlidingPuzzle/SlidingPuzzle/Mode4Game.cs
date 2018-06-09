@@ -64,8 +64,8 @@ namespace SlidingPuzzle
             }
             buttonArray[3, 3].Image = null;
             buttonArray[3, 3].BackColor = Color.Black;
-            
-            
+            date = DateTime.Now;
+            timer.Enabled = true;
         }
         
         private void ResizeImage(int width, int height){
@@ -128,13 +128,13 @@ namespace SlidingPuzzle
                 }
                 
             }
-            date = DateTime.Now;
-            timer.Enabled = true;
+        //    date = DateTime.Now;
+        //    timer.Enabled = true;
         }
         private void clickButton(int y, int x)
         {
-            if (!playGame)
-                return;
+          //  if (!playGame)
+          //      return;
             int temp;
             if ((x < 3 && buttonArray[y, x + 1].Image == null))
             {
@@ -185,8 +185,8 @@ namespace SlidingPuzzle
 
         private void checkFinish()
         {
-            if (!playGame)
-                return;
+          //  if (!playGame)
+         //       return;
             int cnt = 1;
             for(int y = 0; y < 4; y++)
             {
@@ -201,11 +201,73 @@ namespace SlidingPuzzle
             if(cnt == 17)
             {
                 timer.Enabled = false;
-                StreamWriter sw = new StreamWriter(@"D:\Rank.txt", true, System.Text.Encoding.Default);
-                sw.WriteLine(timeScoreLabel.Text+"\t"+DateTime.Now.ToString("yyyy-MM-dd"));
-                sw.Close();
+                rankingSort(timeScoreLabel.Text);
                 MessageBox.Show("축하합니다!");
                 this.Close();
+            }
+        }
+
+        private void rankingSort(string s)
+        {
+            string path = @"D:\Rank4.txt";
+            string tmp = String.Copy(s);
+            tmp = tmp.Replace(".", "");
+            tmp = tmp.Replace(":", "");
+            int recentScore = (int)Convert.ToUInt32(tmp);
+            int num = 11;
+            if (!File.Exists((path)))
+            {
+                StreamWriter sw = new StreamWriter(path);
+                sw.WriteLine(s + "\t" + DateTime.Now.ToShortDateString());
+                sw.Close();
+                return;
+            }
+            string[] scores = File.ReadAllLines(path);
+            int[] temp = new int[scores.Length];
+            for(int i = 0; i < scores.Length; i++)
+            {
+                scores[i] = scores[i].Replace("\t", "");
+                scores[i] = scores[i].Replace(":", "");
+                scores[i] = scores[i].Replace("-", "");
+                scores[i] = scores[i].Replace(".", "");
+                temp[i] = (int)(Convert.ToInt64(scores[i]) / 100000000);
+            }
+
+            for(int i = 0; i < scores.Length; i++)
+            {
+                if (temp[i] > recentScore)
+                {
+                    num = i;
+                    break;
+                }
+            }
+
+            if(num == 11 && scores.Length < 10) {
+                StreamWriter sw = File.AppendText(path);
+                sw.WriteLine(s + "\t" + DateTime.Now.ToShortDateString());
+                sw.Close();
+            } else if(num != 11)
+            {
+                string[] oldscore = File.ReadAllLines(path);
+                StreamWriter sw = new StreamWriter(path, false);
+                for(int i = 0; i < num; i++)
+                {
+                    sw.WriteLine(oldscore[i]);
+                }
+                sw.WriteLine(s + "\t" + DateTime.Now.ToShortDateString());
+                
+                if(scores.Length < 10)
+                {
+                    for (int i = num; i < scores.Length; i++)
+                        sw.WriteLine(oldscore[i]);
+                }
+                else
+                {
+                    for (int i = num; i < 10; i++)
+                        sw.WriteLine(oldscore[i]);
+                }
+
+                sw.Close();
             }
         }
         
@@ -313,17 +375,6 @@ namespace SlidingPuzzle
             Invalidate();
         }
 
-        private void rankingSort()
-        {
-            string path = @"D:\Rank.txt";
-            string[] textValue = File.ReadAllLines(path);
-            for(int i = 0; i < textValue.Length; ++i)
-            {
-                textValue[i].Replace("\t", "");
-                textValue[i].Replace("-", "");
-                textValue[i].Replace(".", "");
-
-            }
-        }
+      
     }
 }
