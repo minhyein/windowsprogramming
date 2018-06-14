@@ -14,6 +14,8 @@ namespace SlidingPuzzle
     public partial class Mode4Game : Form
     {
         DateTime date;
+        private const int WIDTH = 1000;
+        private const int HEIGHT = 800;
         public Mode4Game()
         {
             InitializeComponent();
@@ -22,11 +24,15 @@ namespace SlidingPuzzle
         ChooseImageMode4 mode4;
         Image image;
         Button[,] buttonArray = new Button[4,4];
-        
         bool playGame = false;
+
         public Mode4Game(ChooseImageMode4 form, Image picture)
         {
             InitializeComponent();
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer,true);
+            SetStyle(ControlStyles.UserPaint, true);
+            ClientSize = new Size(WIDTH, HEIGHT);
             this.mode4 = form;
             image = picture;
             ResizeImage(600, 600);
@@ -64,8 +70,20 @@ namespace SlidingPuzzle
             }
             buttonArray[3, 3].Image = null;
             buttonArray[3, 3].BackColor = Color.Black;
-            date = DateTime.Now;
-            timer.Enabled = true;
+
+            string path = @"D:\Rank4.txt";
+            if (!File.Exists((path)))
+                timeHighScoreLabel.Text = "--.--.--------";
+            else
+            {
+                string[] temp = File.ReadAllLines(path);
+                string txt = temp[0];
+                txt = txt.Substring(0, txt.IndexOf("\t"));
+                timeHighScoreLabel.Text = txt;
+
+            }
+
+
         }
         
         private void ResizeImage(int width, int height){
@@ -98,19 +116,26 @@ namespace SlidingPuzzle
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            playGame = true;
+            if (!playGame)
+                playGame = true;
+            else
+                return;
             Random random = new Random();
            
             for(int i = 0; i < 16; i++)
             {
                 Image temp;
+                string tmp;
                 int x = random.Next(0, 4);
                 int y = random.Next(0, 4);
                 int x2 = random.Next(0, 4);
                 int y2 = random.Next(0, 4);
                 temp = buttonArray[x, y].Image;
+                tmp = buttonArray[x, y].Text;
                 buttonArray[x, y].Image = buttonArray[x2, y2].Image;
+                buttonArray[x, y].Text = buttonArray[x2, y2].Text;
                 buttonArray[x2, y2].Image = temp;
+                buttonArray[x2, y2].Text = tmp;
             }
 
             for(int i = 0; i < 4; i++)
@@ -120,6 +145,7 @@ namespace SlidingPuzzle
                     if (buttonArray[i, j].Image == null)
                     {
                         buttonArray[i, j].BackColor = Color.Black;
+                        buttonArray[i, j].Text = "16";
                     }
                     if(buttonArray[i, j].Image != null && buttonArray[i,j].BackColor == Color.Black)
                     {
@@ -128,13 +154,13 @@ namespace SlidingPuzzle
                 }
                 
             }
-        //    date = DateTime.Now;
-        //    timer.Enabled = true;
+            date = DateTime.Now;
+            timer.Enabled = true;
         }
         private void clickButton(int y, int x)
         {
-          //  if (!playGame)
-          //      return;
+            if (!playGame)
+                return;
             int temp;
             if ((x < 3 && buttonArray[y, x + 1].Image == null))
             {
@@ -158,7 +184,7 @@ namespace SlidingPuzzle
                 buttonArray[y, x].Image = null;
                 return;
             }
-            else if(y < 3 && buttonArray[y+1, x].Image == null)
+            else if (y < 3 && buttonArray[y + 1, x].Image == null)
             {
                 temp = Convert.ToInt32(buttonArray[y + 1, x].Text);
                 buttonArray[y + 1, x].Text = buttonArray[y, x].Text;
@@ -185,8 +211,8 @@ namespace SlidingPuzzle
 
         private void checkFinish()
         {
-          //  if (!playGame)
-         //       return;
+            if (!playGame)
+                return;
             int cnt = 1;
             for(int y = 0; y < 4; y++)
             {
@@ -203,6 +229,7 @@ namespace SlidingPuzzle
                 timer.Enabled = false;
                 rankingSort(timeScoreLabel.Text);
                 MessageBox.Show("축하합니다!");
+                playGame = false;
                 this.Close();
             }
         }
@@ -226,7 +253,7 @@ namespace SlidingPuzzle
             int[] temp = new int[scores.Length];
             for(int i = 0; i < scores.Length; i++)
             {
-                scores[i] = scores[i].Replace("\t", "");
+                scores[i] = scores[i].Substring(0, scores[i].IndexOf("\t"));
                 scores[i] = scores[i].Replace(":", "");
                 scores[i] = scores[i].Replace("-", "");
                 scores[i] = scores[i].Replace(".", "");
@@ -263,7 +290,7 @@ namespace SlidingPuzzle
                 }
                 else
                 {
-                    for (int i = num; i < 10; i++)
+                    for (int i = num; i < 9; i++)
                         sw.WriteLine(oldscore[i]);
                 }
 

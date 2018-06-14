@@ -12,9 +12,12 @@ namespace SlidingPuzzle
 {
     public partial class ChooseImageMode4 : Form
     {
+        private const int WIDTH = 1000;
+        private const int HEIGHT = 800;
         public ChooseImageMode4()
         {
             InitializeComponent();
+            ClientSize = new Size(WIDTH, HEIGHT);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -88,8 +91,9 @@ namespace SlidingPuzzle
                 mode.Show();
             }
         }
+        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void rankingButton_Click(object sender, EventArgs e)
         {
             RankingMode4 rank = new RankingMode4();
             rank.Show();

@@ -50,6 +50,7 @@
             this.startButton = new System.Windows.Forms.Button();
             this.timeScoreLabel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.timeHighScoreLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -281,41 +282,46 @@
             // highScoreLabel
             // 
             this.highScoreLabel.AutoSize = true;
-            this.highScoreLabel.Font = new System.Drawing.Font("배달의민족 주아", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.highScoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.highScoreLabel.Location = new System.Drawing.Point(655, 35);
             this.highScoreLabel.Name = "highScoreLabel";
-            this.highScoreLabel.Size = new System.Drawing.Size(205, 44);
+            this.highScoreLabel.Size = new System.Drawing.Size(175, 35);
             this.highScoreLabel.TabIndex = 16;
             this.highScoreLabel.Text = "High Score";
             // 
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Font = new System.Drawing.Font("배달의민족 주아", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.scoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.scoreLabel.Location = new System.Drawing.Point(655, 185);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(122, 44);
+            this.scoreLabel.Size = new System.Drawing.Size(100, 35);
             this.scoreLabel.TabIndex = 17;
             this.scoreLabel.Text = "Score";
             // 
             // startButton
             // 
+            this.startButton.BackColor = System.Drawing.Color.Transparent;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.startButton.Font = new System.Drawing.Font("배달의민족 주아", 24F);
+            this.startButton.Image = global::SlidingPuzzle.Properties.Resources.start;
             this.startButton.Location = new System.Drawing.Point(663, 581);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(296, 54);
+            this.startButton.Size = new System.Drawing.Size(300, 60);
             this.startButton.TabIndex = 18;
-            this.startButton.Text = "GAME START";
-            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // timeScoreLabel
             // 
             this.timeScoreLabel.AutoSize = true;
-            this.timeScoreLabel.Font = new System.Drawing.Font("배달의민족 주아", 14F);
-            this.timeScoreLabel.Location = new System.Drawing.Point(755, 251);
+            this.timeScoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.timeScoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.timeScoreLabel.Location = new System.Drawing.Point(712, 239);
             this.timeScoreLabel.Name = "timeScoreLabel";
-            this.timeScoreLabel.Size = new System.Drawing.Size(159, 27);
+            this.timeScoreLabel.Size = new System.Drawing.Size(204, 35);
             this.timeScoreLabel.TabIndex = 19;
             this.timeScoreLabel.Text = "--.--.--.------";
             this.timeScoreLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -324,11 +330,26 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // timeHighScoreLabel
+            // 
+            this.timeHighScoreLabel.AutoSize = true;
+            this.timeHighScoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.timeHighScoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.timeHighScoreLabel.Location = new System.Drawing.Point(712, 108);
+            this.timeHighScoreLabel.Name = "timeHighScoreLabel";
+            this.timeHighScoreLabel.Size = new System.Drawing.Size(204, 35);
+            this.timeHighScoreLabel.TabIndex = 19;
+            this.timeHighScoreLabel.Text = "--.--.--.------";
+            this.timeHighScoreLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Mode4Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.play;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
+            this.Controls.Add(this.timeHighScoreLabel);
             this.Controls.Add(this.timeScoreLabel);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.scoreLabel);
@@ -379,5 +400,6 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Label timeScoreLabel;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label timeHighScoreLabel;
     }
 }
