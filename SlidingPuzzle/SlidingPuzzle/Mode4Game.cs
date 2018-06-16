@@ -25,7 +25,8 @@ namespace SlidingPuzzle
         Image image;
         Button[,] buttonArray = new Button[4,4];
         bool playGame = false;
-
+        TimeSpan timeSpan;
+        TimeSpan pause;
         public Mode4Game(ChooseImageMode4 form, Image picture)
         {
             InitializeComponent();
@@ -255,9 +256,8 @@ namespace SlidingPuzzle
             {
                 scores[i] = scores[i].Substring(0, scores[i].IndexOf("\t"));
                 scores[i] = scores[i].Replace(":", "");
-                scores[i] = scores[i].Replace("-", "");
                 scores[i] = scores[i].Replace(".", "");
-                temp[i] = (int)(Convert.ToInt64(scores[i]) / 100000000);
+                temp[i] = (int)(Convert.ToInt64(scores[i]));
             }
 
             for(int i = 0; i < scores.Length; i++)
@@ -397,11 +397,18 @@ namespace SlidingPuzzle
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            TimeSpan timeSpan = DateTime.Now - date;
+            timeSpan = DateTime.Now - date - pause;
             timeScoreLabel.Text = timeSpan.ToString();
             Invalidate();
         }
 
-      
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            DateTime pausetime = DateTime.Now;
+            timer.Stop();
+            MessageBox.Show("일시정지");
+            pause += DateTime.Now - pausetime;
+            timer.Start();
+        }
     }
 }

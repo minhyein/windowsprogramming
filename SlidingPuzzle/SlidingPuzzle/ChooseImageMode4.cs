@@ -89,6 +89,7 @@ namespace SlidingPuzzle
                 Image image = Image.FromFile(openFile.FileName);
                 Mode4Game mode = new Mode4Game(this, image);
                 mode.Show();
+                this.Close();
             }
         }
         

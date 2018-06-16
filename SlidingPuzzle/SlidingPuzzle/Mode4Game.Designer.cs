@@ -51,6 +51,7 @@
             this.timeScoreLabel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.timeHighScoreLabel = new System.Windows.Forms.Label();
+            this.pauseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -342,6 +343,17 @@
             this.timeHighScoreLabel.Text = "--.--.--.------";
             this.timeHighScoreLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // pauseButton
+            // 
+            this.pauseButton.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.pauseButton.Location = new System.Drawing.Point(933, 12);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(30, 30);
+            this.pauseButton.TabIndex = 20;
+            this.pauseButton.Text = "ll";
+            this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
+            // 
             // Mode4Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -349,6 +361,7 @@
             this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.play;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
+            this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.timeHighScoreLabel);
             this.Controls.Add(this.timeScoreLabel);
             this.Controls.Add(this.startButton);
@@ -401,5 +414,6 @@
         private System.Windows.Forms.Label timeScoreLabel;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label timeHighScoreLabel;
+        private System.Windows.Forms.Button pauseButton;
     }
 }
