@@ -190,5 +190,11 @@
   <ItemGroup>
     <None Include="Properties\Resources\rank.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\HighScore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Score.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

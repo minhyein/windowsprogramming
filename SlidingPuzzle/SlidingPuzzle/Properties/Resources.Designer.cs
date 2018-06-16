@@ -142,6 +142,16 @@ namespace SlidingPuzzle.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap HighScore {
+            get {
+                object obj = ResourceManager.GetObject("HighScore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap main {
             get {
                 object obj = ResourceManager.GetObject("main", resourceCulture);
@@ -185,6 +195,16 @@ namespace SlidingPuzzle.Properties {
         internal static System.Drawing.Bitmap ranking {
             get {
                 object obj = ResourceManager.GetObject("ranking", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Score {
+            get {
+                object obj = ResourceManager.GetObject("Score", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

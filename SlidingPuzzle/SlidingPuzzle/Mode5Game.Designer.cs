@@ -100,25 +100,23 @@
             // 
             // scoreLabel
             // 
-            this.scoreLabel.AutoSize = true;
             this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.scoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.scoreLabel.Image = global::SlidingPuzzle.Properties.Resources.Score;
             this.scoreLabel.Location = new System.Drawing.Point(650, 187);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(100, 35);
+            this.scoreLabel.Size = new System.Drawing.Size(175, 35);
             this.scoreLabel.TabIndex = 22;
-            this.scoreLabel.Text = "Score";
             // 
             // highScoreLabel
             // 
-            this.highScoreLabel.AutoSize = true;
             this.highScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.highScoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.highScoreLabel.Image = global::SlidingPuzzle.Properties.Resources.HighScore;
             this.highScoreLabel.Location = new System.Drawing.Point(650, 37);
             this.highScoreLabel.Name = "highScoreLabel";
             this.highScoreLabel.Size = new System.Drawing.Size(175, 35);
             this.highScoreLabel.TabIndex = 21;
-            this.highScoreLabel.Text = "High Score";
             // 
             // button4
             // 
@@ -497,7 +495,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.play;
+            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.main;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.startButton);
