@@ -38,7 +38,7 @@ namespace SlidingPuzzle
                 { button6, button7, button8, button9, button10 },
                 { button11, button12, button13, button14, button15 },
                 { button16, button17, button18, button19, button20 },
-                {button21, button22, button23, button24, button25 } };
+                { button21, button22, button23, button24, button25 } };
 
             for (int i = 0; i < 5; i++)
             {
@@ -148,7 +148,7 @@ namespace SlidingPuzzle
                     if (buttonArray[i, j].Image == null)
                     {
                         buttonArray[i, j].BackColor = Color.Black;
-                        buttonArray[i, j].Text = "16";
+                        buttonArray[i, j].Text = "25";
                     }
                     if (buttonArray[i, j].Image != null && buttonArray[i, j].BackColor == Color.Black)
                     {
@@ -228,7 +228,7 @@ namespace SlidingPuzzle
                 }
             }
 
-            if (cnt == 17)
+            if (cnt == 26)
             {
                 timer.Enabled = false;
                 rankingSort(timeScoreLabel.Text);

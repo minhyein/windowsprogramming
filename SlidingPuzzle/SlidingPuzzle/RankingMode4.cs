@@ -24,8 +24,13 @@ namespace SlidingPuzzle
         private void Ranking_Load(object sender, EventArgs e)
         {
             string path = @"d:\Rank4.txt";
-            string ranking = File.ReadAllText(path);
-            rankingTextBox.Text = ranking;
+            if (!File.Exists(path))
+                rankingTextBox.Text = "저장된 기록이 없습니다.";
+            else
+            {
+                string ranking = File.ReadAllText(path);
+                rankingTextBox.Text = ranking;
+            }
             
         }
     }
