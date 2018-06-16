@@ -23,13 +23,25 @@ namespace SlidingPuzzle
 
         private void RankingMode5_Load(object sender, EventArgs e)
         {
+            Label[] labelArray = new Label[10] {
+                scoreLabel1, scoreLabel2, scoreLabel3, scoreLabel4, scoreLabel5,
+                scoreLabel6, scoreLabel7, scoreLabel8, scoreLabel9, scoreLabel10
+            };
             string path = @"d:\Rank5.txt";
             if (!File.Exists(path))
-                rankingTextBox.Text = "저장된 기록이 없습니다.";
+            {
+                scoreLabel1.Text = "저장된 기록이 없습니다.";
+                scoreLabel1.BackColor = Color.White;
+            }
             else
             {
-                string ranking = File.ReadAllText(path);
-                rankingTextBox.Text = ranking;
+                string[] scores = File.ReadAllLines(path);
+
+                for (int i = 0; i < scores.Length; i++)
+                {
+                    labelArray[i].Text = scores[i];
+                    labelArray[i].BackColor = Color.White;
+                }
             }
         }
     }

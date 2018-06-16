@@ -187,5 +187,8 @@
   <ItemGroup>
     <None Include="Resources\eat.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\rank.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
