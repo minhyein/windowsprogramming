@@ -198,6 +198,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "ChooseImageMode4";
             this.Text = "chooseImageMode4";
+            this.Load += new System.EventHandler(this.ChooseImageMode4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

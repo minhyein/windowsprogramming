@@ -73,6 +73,7 @@
             this.mode5Button.Size = new System.Drawing.Size(300, 250);
             this.mode5Button.TabIndex = 1;
             this.mode5Button.UseVisualStyleBackColor = false;
+            this.mode5Button.Click += new System.EventHandler(this.mode5Button_Click);
             // 
             // MainForm
             // 
@@ -84,6 +85,7 @@
             this.Controls.Add(this.slidingLabel);
             this.Controls.Add(this.mode5Button);
             this.Controls.Add(this.mode4Button);
+            this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.Text = "Sliding Puzzle Game";
             this.Load += new System.EventHandler(this.MainForm_Load);

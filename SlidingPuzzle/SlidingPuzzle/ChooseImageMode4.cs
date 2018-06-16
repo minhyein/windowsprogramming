@@ -99,5 +99,10 @@ namespace SlidingPuzzle
             RankingMode4 rank = new RankingMode4();
             rank.Show();
         }
+
+        private void ChooseImageMode4_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

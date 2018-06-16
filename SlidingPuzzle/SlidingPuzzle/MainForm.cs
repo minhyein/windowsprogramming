@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace SlidingPuzzle
 {
@@ -18,7 +19,8 @@ namespace SlidingPuzzle
         {
             InitializeComponent();
             ClientSize = new Size(WIDTH, HEIGHT);
-
+            SoundPlayer soundPlayer = new SoundPlayer(SlidingPuzzle.Properties.Resources.Aquarium);
+            soundPlayer.PlayLooping();
         }
 
         private void mode4Button_Click(object sender, EventArgs e)
@@ -31,6 +33,13 @@ namespace SlidingPuzzle
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void mode5Button_Click(object sender, EventArgs e)
+        {
+            ChooseImageMode5 form = new ChooseImageMode5();
+            form.Show();
+            this.Enabled = true;
         }
     }
 }

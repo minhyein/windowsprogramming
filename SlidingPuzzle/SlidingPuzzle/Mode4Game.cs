@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Media;
 using System.Windows.Forms;
 
 namespace SlidingPuzzle
@@ -30,9 +31,6 @@ namespace SlidingPuzzle
         public Mode4Game(ChooseImageMode4 form, Image picture)
         {
             InitializeComponent();
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            SetStyle(ControlStyles.OptimizedDoubleBuffer,true);
-            SetStyle(ControlStyles.UserPaint, true);
             ClientSize = new Size(WIDTH, HEIGHT);
             this.mode4 = form;
             image = picture;
@@ -404,6 +402,8 @@ namespace SlidingPuzzle
 
         private void pauseButton_Click(object sender, EventArgs e)
         {
+            if (!playGame)
+                return;
             DateTime pausetime = DateTime.Now;
             timer.Stop();
             MessageBox.Show("일시정지");

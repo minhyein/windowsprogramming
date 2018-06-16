@@ -51,6 +51,12 @@
     <Compile Include="ChooseImageMode4.Designer.cs">
       <DependentUpon>ChooseImageMode4.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseImageMode5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseImageMode5.Designer.cs">
+      <DependentUpon>ChooseImageMode5.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,12 @@
     </Compile>
     <Compile Include="Mode4Game.Designer.cs">
       <DependentUpon>Mode4Game.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mode5Game.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mode5Game.Designer.cs">
+      <DependentUpon>Mode5Game.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,14 +88,26 @@
     <Compile Include="RankingMode4.Designer.cs">
       <DependentUpon>RankingMode4.cs</DependentUpon>
     </Compile>
+    <Compile Include="RankingMode5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RankingMode5.Designer.cs">
+      <DependentUpon>RankingMode5.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChooseImageMode4.resx">
       <DependentUpon>ChooseImageMode4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseImageMode5.resx">
+      <DependentUpon>ChooseImageMode5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mode4Game.resx">
       <DependentUpon>Mode4Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mode5Game.resx">
+      <DependentUpon>Mode5Game.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RankingMode4.resx">
       <DependentUpon>RankingMode4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RankingMode5.resx">
+      <DependentUpon>RankingMode5.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -150,6 +177,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Resources\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\아쿠아리움 - Aquarium.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aquarium.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eat.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
