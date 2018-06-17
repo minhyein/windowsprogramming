@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Text;
 
 namespace SlidingPuzzle
 {
@@ -31,10 +32,15 @@ namespace SlidingPuzzle
         public Mode5Game(ChooseImageMode5 form, Image picture)
         {
             InitializeComponent();
-            ClientSize = new Size(WIDTH, HEIGHT);
+            
             this.mode5 = form;
             image = picture;
             ResizeImage(600, 600);
+            PrivateFontCollection privateFont = new PrivateFontCollection();
+            privateFont.AddFontFile("./Resources/BMHANNA_11yrs_ttf.ttf");
+            Font font = new Font(privateFont.Families[0], 18f);
+            timeScoreLabel.Font = font;
+            timeHighScoreLabel.Font = font;
             buttonArray = new Button[5, 5]{
                 { button1, button2, button3, button4, button5 },
                 { button6, button7, button8, button9, button10 },
@@ -166,8 +172,8 @@ namespace SlidingPuzzle
 
         private void clickButton(int y, int x)
         {
-            //if (!playGame)
-            //    return;
+            if (!playGame)
+                return;
             int temp;
             if ((x < 4 && buttonArray[y, x + 1].Image == null))
             {
@@ -218,8 +224,8 @@ namespace SlidingPuzzle
 
         private void checkFinish()
         {
-            //if (!playGame)
-            //    return;
+            if (!playGame)
+                return;
             int cnt = 1;
             for (int y = 0; y < 5; y++)
             {
@@ -235,7 +241,7 @@ namespace SlidingPuzzle
             {
                 GameOver over = new GameOver();
                 timer.Enabled = false;
-                //rankingSort(timeScoreLabel.Text);
+                rankingSort(timeScoreLabel.Text);
                 playGame = false;
                 over.ShowDialog();
                 this.Close();
@@ -470,6 +476,11 @@ namespace SlidingPuzzle
         private void pauseButton_MouseLeave(object sender, EventArgs e)
         {
             pauseButton.ForeColor = Color.LemonChiffon;
+        }
+
+        private void Mode5Game_Load(object sender, EventArgs e)
+        {
+            ClientSize = new Size(WIDTH, HEIGHT);
         }
     }
 }

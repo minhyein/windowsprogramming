@@ -22,13 +22,13 @@ namespace SlidingPuzzle
         public Pause(string s)
         {
             InitializeComponent();
-            ClientSize = new Size(WIDTH, HEIGHT);
             currentScoreLabel.Text = s;
         }
 
         private void Pause_Load(object sender, EventArgs e)
         {
-
+            ClientSize = new Size(WIDTH, HEIGHT);
+            
         }
 
         private void backButton_Click(object sender, EventArgs e)

@@ -160,6 +160,9 @@
     <None Include="Resources\bloom.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BMHANNA_11yrs_ttf.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\book.jpg" />
   </ItemGroup>
   <ItemGroup>

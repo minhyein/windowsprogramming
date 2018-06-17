@@ -17,7 +17,7 @@ namespace SlidingPuzzle
         public ChooseImageMode4()
         {
             InitializeComponent();
-            ClientSize = new Size(WIDTH, HEIGHT);
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace SlidingPuzzle
 
         private void ChooseImageMode4_Load(object sender, EventArgs e)
         {
-
+            ClientSize = new Size(WIDTH, HEIGHT);
         }
 
         private void rankingButton_MouseMove(object sender, MouseEventArgs e)

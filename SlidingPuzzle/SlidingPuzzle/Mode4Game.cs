@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Media;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace SlidingPuzzle
 {
@@ -31,11 +32,15 @@ namespace SlidingPuzzle
         public Mode4Game(ChooseImageMode4 form, Image picture)
         {
             InitializeComponent();
-            ClientSize = new Size(WIDTH, HEIGHT);
+           
             this.mode4 = form;
             image = picture;
             ResizeImage(600, 600);
-            
+            PrivateFontCollection privateFont = new PrivateFontCollection();
+            privateFont.AddFontFile("./Resources/BMHANNA_11yrs_ttf.ttf");
+            Font font = new Font(privateFont.Families[0], 18F);
+            timeScoreLabel.Font = font;
+            timeHighScoreLabel.Font = font;
             buttonArray = new Button[4, 4]{
                 { button1, button2, button3, button4 },
                 { button5, button6, button7, button8 },
@@ -433,6 +438,11 @@ namespace SlidingPuzzle
         private void pauseButton_MouseMove(object sender, MouseEventArgs e)
         {
             pauseButton.ForeColor = Color.Maroon;
+        }
+
+        private void Mode4Game_Load(object sender, EventArgs e)
+        {
+            ClientSize = new Size(WIDTH, HEIGHT);
         }
     }
 }

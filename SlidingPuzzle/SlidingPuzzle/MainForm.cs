@@ -18,9 +18,7 @@ namespace SlidingPuzzle
         public MainForm()
         {
             InitializeComponent();
-            ClientSize = new Size(WIDTH, HEIGHT);
-            SoundPlayer soundPlayer = new SoundPlayer(SlidingPuzzle.Properties.Resources.Aquarium);
-            soundPlayer.PlayLooping();
+            
         }
 
         private void mode4Button_Click(object sender, EventArgs e)
@@ -33,7 +31,9 @@ namespace SlidingPuzzle
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            ClientSize = new Size(WIDTH, HEIGHT);
+            SoundPlayer soundPlayer = new SoundPlayer(SlidingPuzzle.Properties.Resources.Aquarium);
+            soundPlayer.PlayLooping();
         }
 
         private void mode5Button_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Text;
 
 namespace SlidingPuzzle
 {
@@ -18,11 +19,15 @@ namespace SlidingPuzzle
         public RankingMode5()
         {
             InitializeComponent();
-            ClientSize = new Size(WIDTH, HEIGHT);
+            
         }
 
         private void RankingMode5_Load(object sender, EventArgs e)
         {
+            ClientSize = new Size(WIDTH, HEIGHT);
+            PrivateFontCollection privateFont = new PrivateFontCollection();
+            privateFont.AddFontFile("./Resources/BMHANNA_11yrs_ttf.ttf");
+            Font font = new Font(privateFont.Families[0], 20F, FontStyle.Bold);
             Label[] labelArray = new Label[10] {
                 scoreLabel1, scoreLabel2, scoreLabel3, scoreLabel4, scoreLabel5,
                 scoreLabel6, scoreLabel7, scoreLabel8, scoreLabel9, scoreLabel10
@@ -30,6 +35,7 @@ namespace SlidingPuzzle
             string path = @"d:\Rank5.txt";
             if (!File.Exists(path))
             {
+                scoreLabel1.Font = font;
                 scoreLabel1.Text = "저장된 기록이 없습니다.";
             }
             else
@@ -39,6 +45,7 @@ namespace SlidingPuzzle
                 for (int i = 0; i < scores.Length; i++)
                 {
                     labelArray[i].Text = scores[i];
+                    labelArray[i].Font = font;
                 }
             }
         }

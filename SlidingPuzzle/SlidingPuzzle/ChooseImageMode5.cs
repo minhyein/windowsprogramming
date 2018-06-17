@@ -17,7 +17,7 @@ namespace SlidingPuzzle
         public ChooseImageMode5()
         {
             InitializeComponent();
-            ClientSize = new Size(WIDTH, HEIGHT);
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -116,6 +116,11 @@ namespace SlidingPuzzle
         private void rankingButton_MouseLeave(object sender, EventArgs e)
         {
             rankingButton.BackgroundImage = SlidingPuzzle.Properties.Resources.ranking;
+        }
+
+        private void ChooseImageMode5_Load(object sender, EventArgs e)
+        {
+            ClientSize = new Size(WIDTH, HEIGHT);
         }
     }
 }

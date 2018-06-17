@@ -294,6 +294,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.rank;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
@@ -317,6 +318,7 @@
             this.Controls.Add(this.num3);
             this.Controls.Add(this.num2);
             this.Controls.Add(this.num1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RankingMode5";
             this.Text = "RankingMode5";
             this.Load += new System.EventHandler(this.RankingMode5_Load);

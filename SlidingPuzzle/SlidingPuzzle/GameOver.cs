@@ -12,6 +12,8 @@ namespace SlidingPuzzle
 {
     public partial class GameOver : Form
     {
+        private int WIDTH = 400;
+        private int HEIGHT = 500;
         public GameOver()
         {
             InitializeComponent();
@@ -39,6 +41,11 @@ namespace SlidingPuzzle
             form.Show();
             Program.ac.MainForm = form;
             this.Close();
+        }
+
+        private void GameOver_Load(object sender, EventArgs e)
+        {
+            ClientSize = new Size(WIDTH, HEIGHT);
         }
     }
 }
