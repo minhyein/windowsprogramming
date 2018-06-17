@@ -28,61 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.mode4Button = new System.Windows.Forms.Button();
-            this.slidingLabel = new System.Windows.Forms.Label();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.mode5Button = new System.Windows.Forms.Button();
+            this.mode4Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // mode4Button
-            // 
-            this.mode4Button.BackColor = System.Drawing.Color.Transparent;
-            this.mode4Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.mode4Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.mode4Button.Font = new System.Drawing.Font("배달의민족 주아", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.mode4Button.Image = global::SlidingPuzzle.Properties.Resources._44button;
-            this.mode4Button.Location = new System.Drawing.Point(89, 383);
-            this.mode4Button.Name = "mode4Button";
-            this.mode4Button.Size = new System.Drawing.Size(300, 250);
-            this.mode4Button.TabIndex = 0;
-            this.mode4Button.UseVisualStyleBackColor = false;
-            this.mode4Button.Click += new System.EventHandler(this.mode4Button_Click);
-            // 
-            // slidingLabel
-            // 
-            this.slidingLabel.BackColor = System.Drawing.Color.Transparent;
-            this.slidingLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.slidingLabel.ForeColor = System.Drawing.Color.Black;
-            this.slidingLabel.Image = global::SlidingPuzzle.Properties.Resources.title;
-            this.slidingLabel.Location = new System.Drawing.Point(250, 50);
-            this.slidingLabel.Name = "slidingLabel";
-            this.slidingLabel.Size = new System.Drawing.Size(516, 195);
-            this.slidingLabel.TabIndex = 2;
-            this.slidingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mode5Button
             // 
             this.mode5Button.BackColor = System.Drawing.Color.Transparent;
             this.mode5Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.mode5Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.mode5Button.FlatAppearance.BorderSize = 4;
+            this.mode5Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mode5Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mode5Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mode5Button.Font = new System.Drawing.Font("배달의민족 주아", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.mode5Button.Image = global::SlidingPuzzle.Properties.Resources._55button;
+            this.mode5Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.mode5Button.Image = global::SlidingPuzzle.Properties.Resources.그림4;
             this.mode5Button.Location = new System.Drawing.Point(575, 383);
             this.mode5Button.Name = "mode5Button";
             this.mode5Button.Size = new System.Drawing.Size(300, 250);
             this.mode5Button.TabIndex = 1;
             this.mode5Button.UseVisualStyleBackColor = false;
             this.mode5Button.Click += new System.EventHandler(this.mode5Button_Click);
+            this.mode5Button.MouseLeave += new System.EventHandler(this.mode5Button_MouseLeave);
+            this.mode5Button.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mode5Button_MouseMove);
+            // 
+            // mode4Button
+            // 
+            this.mode4Button.BackColor = System.Drawing.Color.Transparent;
+            this.mode4Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.mode4Button.FlatAppearance.BorderSize = 4;
+            this.mode4Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mode4Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mode4Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mode4Button.Font = new System.Drawing.Font("배달의민족 주아", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.mode4Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.mode4Button.Image = global::SlidingPuzzle.Properties.Resources.그림1;
+            this.mode4Button.Location = new System.Drawing.Point(89, 383);
+            this.mode4Button.Name = "mode4Button";
+            this.mode4Button.Size = new System.Drawing.Size(300, 250);
+            this.mode4Button.TabIndex = 0;
+            this.mode4Button.UseVisualStyleBackColor = false;
+            this.mode4Button.Click += new System.EventHandler(this.mode4Button_Click);
+            this.mode4Button.MouseLeave += new System.EventHandler(this.mode4Button_MouseLeave);
+            this.mode4Button.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mode4Button_MouseMove);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.main;
+            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.main1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
-            this.Controls.Add(this.slidingLabel);
             this.Controls.Add(this.mode5Button);
             this.Controls.Add(this.mode4Button);
             this.DoubleBuffered = true;
@@ -96,8 +92,6 @@
         #endregion
 
         private System.Windows.Forms.Button mode4Button;
-        private System.Windows.Forms.Label slidingLabel;
-        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button mode5Button;
     }
 }

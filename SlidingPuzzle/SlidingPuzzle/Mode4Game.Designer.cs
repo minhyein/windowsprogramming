@@ -52,6 +52,8 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.timeHighScoreLabel = new System.Windows.Forms.Label();
             this.pauseButton = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -303,21 +305,28 @@
             // startButton
             // 
             this.startButton.BackColor = System.Drawing.Color.Transparent;
-            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.startButton.BackgroundImage = global::SlidingPuzzle.Properties.Resources.start;
+            this.startButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.startButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.startButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startButton.Font = new System.Drawing.Font("배달의민족 주아", 24F);
-            this.startButton.Image = global::SlidingPuzzle.Properties.Resources.start;
+            this.startButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.startButton.Location = new System.Drawing.Point(663, 581);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(300, 60);
             this.startButton.TabIndex = 18;
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            this.startButton.MouseLeave += new System.EventHandler(this.startButton_MouseLeave);
+            this.startButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.startButton_MouseMove);
             // 
             // timeScoreLabel
             // 
             this.timeScoreLabel.AutoSize = true;
             this.timeScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeScoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.timeScoreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.timeScoreLabel.Location = new System.Drawing.Point(712, 239);
             this.timeScoreLabel.Name = "timeScoreLabel";
             this.timeScoreLabel.Size = new System.Drawing.Size(204, 35);
@@ -334,6 +343,7 @@
             this.timeHighScoreLabel.AutoSize = true;
             this.timeHighScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeHighScoreLabel.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.timeHighScoreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.timeHighScoreLabel.Location = new System.Drawing.Point(712, 108);
             this.timeHighScoreLabel.Name = "timeHighScoreLabel";
             this.timeHighScoreLabel.Size = new System.Drawing.Size(204, 35);
@@ -343,22 +353,38 @@
             // 
             // pauseButton
             // 
-            this.pauseButton.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.pauseButton.Location = new System.Drawing.Point(933, 12);
+            this.pauseButton.BackColor = System.Drawing.Color.Transparent;
+            this.pauseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pauseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pauseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pauseButton.Font = new System.Drawing.Font("배달의민족 한나는 열한살", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.pauseButton.ForeColor = System.Drawing.Color.LemonChiffon;
+            this.pauseButton.Location = new System.Drawing.Point(921, 12);
             this.pauseButton.Name = "pauseButton";
-            this.pauseButton.Size = new System.Drawing.Size(30, 30);
+            this.pauseButton.Size = new System.Drawing.Size(42, 39);
             this.pauseButton.TabIndex = 20;
             this.pauseButton.Text = "ll";
-            this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.UseVisualStyleBackColor = false;
             this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
+            this.pauseButton.MouseLeave += new System.EventHandler(this.pauseButton_MouseLeave);
+            this.pauseButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pauseButton_MouseMove);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(663, 275);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(300, 300);
+            this.pictureBox.TabIndex = 21;
+            this.pictureBox.TabStop = false;
             // 
             // Mode4Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.main;
+            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.play;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.timeHighScoreLabel);
             this.Controls.Add(this.timeScoreLabel);
@@ -384,6 +410,7 @@
             this.DoubleBuffered = true;
             this.Name = "Mode4Game";
             this.Text = "mode4Game";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,5 +441,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label timeHighScoreLabel;
         private System.Windows.Forms.Button pauseButton;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }

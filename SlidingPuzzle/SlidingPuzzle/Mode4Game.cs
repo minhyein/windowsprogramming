@@ -35,6 +35,7 @@ namespace SlidingPuzzle
             this.mode4 = form;
             image = picture;
             ResizeImage(600, 600);
+            
             buttonArray = new Button[4, 4]{
                 { button1, button2, button3, button4 },
                 { button5, button6, button7, button8 },
@@ -69,8 +70,9 @@ namespace SlidingPuzzle
             }
             buttonArray[3, 3].Image = null;
             buttonArray[3, 3].BackColor = Color.Black;
-
-            string path = @"D:\Rank4.txt";
+            ResizeImage(300, 300);
+            pictureBox.Image = image;
+            string path = Application.StartupPath + @"\Rank4.txt";
             if (!File.Exists((path)))
                 timeHighScoreLabel.Text = "--.--.--------";
             else
@@ -225,17 +227,18 @@ namespace SlidingPuzzle
 
             if(cnt == 17)
             {
+                GameOver gameOver = new GameOver();
                 timer.Enabled = false;
                 rankingSort(timeScoreLabel.Text);
-                MessageBox.Show("축하합니다!");
                 playGame = false;
+                gameOver.ShowDialog();
                 this.Close();
             }
         }
 
         private void rankingSort(string s)
         {
-            string path = @"D:\Rank4.txt";
+            string path = Application.StartupPath + @"\Rank4.txt";
             string tmp = String.Copy(s);
             tmp = tmp.Replace(".", "");
             tmp = tmp.Replace(":", "");
@@ -406,9 +409,30 @@ namespace SlidingPuzzle
                 return;
             DateTime pausetime = DateTime.Now;
             timer.Stop();
-            MessageBox.Show("일시정지");
+            Pause form = new Pause(timeScoreLabel.Text);
+            form.ShowDialog();
             pause += DateTime.Now - pausetime;
             timer.Start();
+        }
+
+        private void startButton_MouseLeave(object sender, EventArgs e)
+        {
+            startButton.BackgroundImage = SlidingPuzzle.Properties.Resources.start;
+        }
+
+        private void startButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            startButton.BackgroundImage = SlidingPuzzle.Properties.Resources.StartClick;
+        }
+
+        private void pauseButton_MouseLeave(object sender, EventArgs e)
+        {
+            pauseButton.ForeColor = Color.LemonChiffon;
+        }
+
+        private void pauseButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            pauseButton.ForeColor = Color.Maroon;
         }
     }
 }

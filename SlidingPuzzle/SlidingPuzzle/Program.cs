@@ -8,6 +8,7 @@ namespace SlidingPuzzle
 {
     static class Program
     {
+        public static ApplicationContext ac = new ApplicationContext();
         /// <summary>
         /// 해당 응용 프로그램의 주 진입점입니다.
         /// </summary>
@@ -16,7 +17,9 @@ namespace SlidingPuzzle
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            MainForm mainForm = new MainForm();
+            ac.MainForm = mainForm;
+            Application.Run(ac);
         }
     }
 }

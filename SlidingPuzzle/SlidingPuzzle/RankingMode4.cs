@@ -27,7 +27,7 @@ namespace SlidingPuzzle
                 scoreLabel1, scoreLabel2, scoreLabel3, scoreLabel4, scoreLabel5,
                 scoreLabel6, scoreLabel7, scoreLabel8, scoreLabel9, scoreLabel10
             };
-            string path = @"d:\Rank4.txt";
+            string path = Application.StartupPath + @"\Rank4.txt";
             if (!File.Exists(path))
                 scoreLabel1.Text = "저장된 기록이 없습니다.";
             else
@@ -37,7 +37,6 @@ namespace SlidingPuzzle
                 for (int i = 0; i < scores.Length; i++)
                 {
                     labelArray[i].Text = scores[i];
-                    labelArray[i].BackColor = Color.White;
                 }
             }
         }

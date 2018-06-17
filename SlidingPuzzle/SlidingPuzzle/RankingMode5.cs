@@ -31,7 +31,6 @@ namespace SlidingPuzzle
             if (!File.Exists(path))
             {
                 scoreLabel1.Text = "저장된 기록이 없습니다.";
-                scoreLabel1.BackColor = Color.White;
             }
             else
             {
@@ -40,7 +39,6 @@ namespace SlidingPuzzle
                 for (int i = 0; i < scores.Length; i++)
                 {
                     labelArray[i].Text = scores[i];
-                    labelArray[i].BackColor = Color.White;
                 }
             }
         }

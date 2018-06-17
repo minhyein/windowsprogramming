@@ -16,16 +16,18 @@ namespace SlidingPuzzle
         DateTime date;
         private const int WIDTH = 1000;
         private const int HEIGHT = 800;
-        public Mode5Game()
-        {
-            InitializeComponent();
-        }
         ChooseImageMode5 mode5;
         Image image;
         Button[,] buttonArray = new Button[5, 5];
         bool playGame = false;
         TimeSpan timeSpan;
         TimeSpan pause;
+
+        public Mode5Game()
+        {
+            InitializeComponent();
+        }
+
         public Mode5Game(ChooseImageMode5 form, Image picture)
         {
             InitializeComponent();
@@ -74,8 +76,9 @@ namespace SlidingPuzzle
             }
             buttonArray[4, 4].Image = null;
             buttonArray[4, 4].BackColor = Color.Black;
-
-            string path = @"D:\Rank5.txt";
+            ResizeImage(300, 300);
+            pictureBox.Image = image;
+            string path = Application.StartupPath + @"\Rank5.txt";
             if (!File.Exists((path)))
                 timeHighScoreLabel.Text = "--.--.--------";
             else
@@ -163,8 +166,8 @@ namespace SlidingPuzzle
 
         private void clickButton(int y, int x)
         {
-            if (!playGame)
-                return;
+            //if (!playGame)
+            //    return;
             int temp;
             if ((x < 4 && buttonArray[y, x + 1].Image == null))
             {
@@ -215,8 +218,8 @@ namespace SlidingPuzzle
 
         private void checkFinish()
         {
-            if (!playGame)
-                return;
+            //if (!playGame)
+            //    return;
             int cnt = 1;
             for (int y = 0; y < 5; y++)
             {
@@ -230,17 +233,18 @@ namespace SlidingPuzzle
 
             if (cnt == 26)
             {
+                GameOver over = new GameOver();
                 timer.Enabled = false;
-                rankingSort(timeScoreLabel.Text);
-                MessageBox.Show("축하합니다!");
+                //rankingSort(timeScoreLabel.Text);
                 playGame = false;
+                over.ShowDialog();
                 this.Close();
             }
         }
 
         private void rankingSort(string s)
         {
-            string path = @"D:\Rank5.txt";
+            string path = Application.StartupPath + @"\Rank5.txt";
             string tmp = String.Copy(s);
             tmp = tmp.Replace(".", "");
             tmp = tmp.Replace(":", "");
@@ -308,145 +312,121 @@ namespace SlidingPuzzle
             clickButton(0, 0);
             checkFinish();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             clickButton(0, 1);
             checkFinish();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             clickButton(0, 2);
             checkFinish();
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             clickButton(0, 3);
             checkFinish();
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
             clickButton(0, 4);
             checkFinish();
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             clickButton(1, 0);
             checkFinish();
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
             clickButton(1, 1);
             checkFinish();
         }
-
         private void button8_Click(object sender, EventArgs e)
         {
             clickButton(1, 2);
             checkFinish();
         }
-
         private void button9_Click(object sender, EventArgs e)
         {
             clickButton(1, 3);
             checkFinish();
         }
-
         private void button10_Click(object sender, EventArgs e)
         {
             clickButton(1, 4);
             checkFinish();
         }
-
         private void button11_Click(object sender, EventArgs e)
         {
             clickButton(2, 0);
             checkFinish();
         }
-
         private void button12_Click(object sender, EventArgs e)
         {
             clickButton(2, 1);
             checkFinish();
         }
-
         private void button13_Click(object sender, EventArgs e)
         {
             clickButton(2, 2);
             checkFinish();
         }
-
         private void button14_Click(object sender, EventArgs e)
         {
             clickButton(2, 3);
             checkFinish();
         }
-
         private void button15_Click(object sender, EventArgs e)
         {
             clickButton(2, 4);
             checkFinish();
         }
-
         private void button16_Click(object sender, EventArgs e)
         {
             clickButton(3, 0);
             checkFinish();
         }
-
         private void button17_Click(object sender, EventArgs e)
         {
             clickButton(3, 1);
             checkFinish();
         }
-
         private void button18_Click(object sender, EventArgs e)
         {
             clickButton(3, 2);
             checkFinish();
         }
-
         private void button19_Click(object sender, EventArgs e)
         {
             clickButton(3, 3);
             checkFinish();
         }
-
         private void button20_Click(object sender, EventArgs e)
         {
             clickButton(3, 4);
             checkFinish();
         }
-
         private void button21_Click(object sender, EventArgs e)
         {
             clickButton(4, 0);
             checkFinish();
         }
-
         private void button22_Click(object sender, EventArgs e)
         {
             clickButton(4, 1);
             checkFinish();
         }
-
         private void button23_Click(object sender, EventArgs e)
         {
             clickButton(4, 2);
             checkFinish();
         }
-
         private void button24_Click(object sender, EventArgs e)
         {
             clickButton(4, 3);
             checkFinish();
         }
-
         private void button25_Click(object sender, EventArgs e)
         {
             clickButton(4, 4);
@@ -459,7 +439,8 @@ namespace SlidingPuzzle
                 return;
             DateTime pausetime = DateTime.Now;
             timer.Stop();
-            MessageBox.Show("일시정지");
+            Pause form = new Pause(timeScoreLabel.Text);
+            form.ShowDialog();
             pause += DateTime.Now - pausetime;
             timer.Start();
         }
@@ -469,6 +450,26 @@ namespace SlidingPuzzle
             timeSpan = DateTime.Now - date - pause;
             timeScoreLabel.Text = timeSpan.ToString();
             Invalidate();
+        }
+
+        private void startButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            startButton.BackgroundImage = SlidingPuzzle.Properties.Resources.StartClick;
+        }
+
+        private void startButton_MouseLeave(object sender, EventArgs e)
+        {
+            startButton.BackgroundImage = SlidingPuzzle.Properties.Resources.start;
+        }
+
+        private void pauseButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            pauseButton.ForeColor = Color.Maroon;
+        }
+
+        private void pauseButton_MouseLeave(object sender, EventArgs e)
+        {
+            pauseButton.ForeColor = Color.LemonChiffon;
         }
     }
 }

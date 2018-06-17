@@ -64,15 +64,21 @@
             // rankingButton
             // 
             this.rankingButton.BackColor = System.Drawing.Color.Transparent;
+            this.rankingButton.BackgroundImage = global::SlidingPuzzle.Properties.Resources.ranking;
+            this.rankingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rankingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.rankingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.rankingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rankingButton.Font = new System.Drawing.Font("배달의민족 주아", 12F);
-            this.rankingButton.Image = global::SlidingPuzzle.Properties.Resources.ranking;
+            this.rankingButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.rankingButton.Location = new System.Drawing.Point(831, 36);
             this.rankingButton.Name = "rankingButton";
             this.rankingButton.Size = new System.Drawing.Size(120, 60);
             this.rankingButton.TabIndex = 9;
             this.rankingButton.UseVisualStyleBackColor = false;
             this.rankingButton.Click += new System.EventHandler(this.rankingButton_Click);
+            this.rankingButton.MouseLeave += new System.EventHandler(this.rankingButton_MouseLeave);
+            this.rankingButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.rankingButton_MouseMove);
             // 
             // pictureBox8
             // 
@@ -183,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.main;
+            this.BackgroundImage = global::SlidingPuzzle.Properties.Resources.ChooseImage;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.rankingButton);

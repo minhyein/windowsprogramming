@@ -24,6 +24,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox1.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
 
         }
@@ -32,6 +33,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox2.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
         }
 
@@ -39,6 +41,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox3.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
         }
 
@@ -46,6 +49,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox4.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
         }
 
@@ -53,6 +57,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox5.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
         }
 
@@ -60,6 +65,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox6.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
         }
 
@@ -67,6 +73,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox7.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
         }
 
@@ -74,6 +81,7 @@ namespace SlidingPuzzle
         {
             Mode4Game mode = new Mode4Game(this, pictureBox8.Image);
             mode.Show();
+            Program.ac.MainForm = mode;
             this.Close();
         }
 
@@ -89,6 +97,7 @@ namespace SlidingPuzzle
                 Image image = Image.FromFile(openFile.FileName);
                 Mode4Game mode = new Mode4Game(this, image);
                 mode.Show();
+                Program.ac.MainForm = mode;
                 this.Close();
             }
         }
@@ -103,6 +112,16 @@ namespace SlidingPuzzle
         private void ChooseImageMode4_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void rankingButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            rankingButton.BackgroundImage = SlidingPuzzle.Properties.Resources.rankingclick;
+        }
+
+        private void rankingButton_MouseLeave(object sender, EventArgs e)
+        {
+            rankingButton.BackgroundImage = SlidingPuzzle.Properties.Resources.ranking;
         }
     }
 }

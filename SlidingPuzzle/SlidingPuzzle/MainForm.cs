@@ -27,7 +27,8 @@ namespace SlidingPuzzle
         {
             ChooseImageMode4 form = new ChooseImageMode4();
             form.Show();
-            this.Enabled = true;
+            Program.ac.MainForm = form;
+            this.Close();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -39,7 +40,28 @@ namespace SlidingPuzzle
         {
             ChooseImageMode5 form = new ChooseImageMode5();
             form.Show();
-            this.Enabled = true;
+            Program.ac.MainForm = form;
+            this.Close();
+        }
+        
+        private void mode4Button_MouseMove(object sender, MouseEventArgs e)
+        {
+            mode4Button.Image = SlidingPuzzle.Properties.Resources.그림2;
+        }
+
+        private void mode5Button_MouseMove(object sender, MouseEventArgs e)
+        {
+            mode5Button.Image = SlidingPuzzle.Properties.Resources.그림3;
+        }
+
+        private void mode5Button_MouseLeave(object sender, EventArgs e)
+        {
+            mode5Button.Image = SlidingPuzzle.Properties.Resources.그림4;
+        }
+
+        private void mode4Button_MouseLeave(object sender, EventArgs e)
+        {
+            mode4Button.Image = SlidingPuzzle.Properties.Resources.그림1;
         }
     }
 }

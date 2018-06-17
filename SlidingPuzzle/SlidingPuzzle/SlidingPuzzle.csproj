@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +59,12 @@
     <Compile Include="ChooseImageMode5.Designer.cs">
       <DependentUpon>ChooseImageMode5.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOver.Designer.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +82,12 @@
     </Compile>
     <Compile Include="Mode5Game.Designer.cs">
       <DependentUpon>Mode5Game.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pause.Designer.cs">
+      <DependentUpon>Pause.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +114,9 @@
     <EmbeddedResource Include="ChooseImageMode5.resx">
       <DependentUpon>ChooseImageMode5.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameOver.resx">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mode5Game.resx">
       <DependentUpon>Mode5Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pause.resx">
+      <DependentUpon>Pause.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,67 +154,91 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources\bloom.jpg" />
+    <Folder Include="Properties\Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Book.jpg" />
+    <None Include="Resources\bloom.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Sign.jpg" />
+    <None Include="Resources\book.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Winter.jpg" />
+    <None Include="Resources\castle.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Castle.jpg" />
+    <None Include="Resources\Cat.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Cat.jpg" />
+    <None Include="Resources\Gold.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Gold.jpg" />
+    <None Include="Resources\HighScore.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Puzzle.jpg" />
+    <None Include="Resources\main.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\alphabet-close-up-communication-256417.jpg" />
+    <None Include="Resources\pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\title.png" />
+    <None Include="Resources\play.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\44button.png" />
+    <None Include="Resources\puzzle.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\55button.png" />
+    <None Include="Resources\ranking.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\ranking.png" />
+    <None Include="Resources\rankingpage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\play.jpg" />
+    <None Include="Resources\resume.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\start.png" />
+    <None Include="Resources\resumeclick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\아쿠아리움 - Aquarium.mp3" />
+    <None Include="Resources\Score.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Aquarium.wav" />
+    <None Include="Resources\Sign.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eat.wav" />
+    <None Include="Resources\Start.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\rank.png" />
+    <None Include="Resources\Winter.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\HighScore.png" />
+    <None Include="Resources\그림1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\Resources\Score.png" />
+    <None Include="Resources\그림2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\그림3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\그림4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartClick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChooseImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rankingclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitclick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
