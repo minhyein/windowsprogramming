@@ -414,7 +414,7 @@ namespace SlidingPuzzle
                 return;
             DateTime pausetime = DateTime.Now;
             timer.Stop();
-            Pause form = new Pause(timeScoreLabel.Text);
+            Pause form = new Pause(timeScoreLabel.Text, this);
             form.ShowDialog();
             pause += DateTime.Now - pausetime;
             timer.Start();
